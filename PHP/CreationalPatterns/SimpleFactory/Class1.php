@@ -1,5 +1,8 @@
 <?php
 namespace PHP\CreationalPatterns\SimpleFactory;
+
+//Lint for youtube : https://youtu.be/A-V_uAMFDsk
+
 /**
  * создвется класс одного из объектов
  */

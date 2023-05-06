@@ -1,6 +1,8 @@
 <?php
 namespace PHP\CreationalPatterns\SimpleFactory;
 
+//Lint for youtube : https://youtu.be/A-V_uAMFDsk
+
 class SimpleFactory
 {
     // метод создает разные объекты в зависимости от условий.
