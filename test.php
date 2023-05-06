@@ -7,13 +7,13 @@ spl_autoload_register(function ($class_name) {
   } 
   );
 
-use \PHP\CreationalPatterns\Singleton as link;
+use \PHP\CreationalPatterns\SimpleFactory as link;
 
-$obj = link\SingletonToGo::getInstance();
+$obj = link\SimpleFactory::getInstance();
 
-$obj = link\SingletonToGo::getInstance();
+$obj = link\SimpleFactory::getInstance();
 
-$obj = link\SingletonToGo::getInstance();
+$obj = link\SimpleFactory::getInstance();
 
 
 
