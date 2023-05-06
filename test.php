@@ -7,4 +7,6 @@ spl_autoload_register(function ($class_name) {
   } 
   );
 
-$obj = \PHP\CreationalPatterns\Singleton\TestSingleton::getInstance("hello");
+use \PHP\CreationalPatterns\Singleton as link;
+
+$obj = link\TestSingleton::getInstance("hello");
