@@ -1,5 +1,5 @@
 <?php
-namespace libraries\piotr;
+// namespace libraries\piotr;
 
 /**
 *getInstance - Метод - фабрика. Создает объект только один раз,
