@@ -1,5 +1,6 @@
 <?php
 namespace PHP\CreationalPatterns\Singleton;
+// https://youtu.be/Zq0f8lsDuF8 link for video
 
 /**
 *  getInstance - The method is a factory. Creates an object only once,

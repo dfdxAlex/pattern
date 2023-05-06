@@ -1,6 +1,6 @@
 <?php
 namespace PHP\CreationalPatterns\Singleton;
-
+// https://youtu.be/Zq0f8lsDuF8 link for video
 class TestSingletonNC
 {
 
