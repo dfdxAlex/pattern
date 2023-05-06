@@ -1,5 +1,5 @@
 <?php
-// namespace libraries\piotr;
+namespace PHP\CreationalPatterns\Singleton;
 
 /**
 *getInstance - Метод - фабрика. Создает объект только один раз,
