@@ -10,3 +10,9 @@ spl_autoload_register(function ($class_name) {
 use \PHP\CreationalPatterns\Singleton as link;
 
 $obj = link\TestSingletonNC::getInstance("hello");
+
+echo $obj->getStatus();
+
+
+
+

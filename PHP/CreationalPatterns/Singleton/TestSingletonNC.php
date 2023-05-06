@@ -18,7 +18,7 @@ class TestSingletonNC
     }
 
     public static function getInstance($status): TestSingletonNC   // kill
-    //public static function getInstance($status): TestSingleton // kill comment
+    //public static function getInstance(): TestSingletonNC // kill comment
     {
         if (is_null(self::$instances)) {
             self::$instances = new self();
