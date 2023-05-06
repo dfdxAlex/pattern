@@ -9,11 +9,11 @@ spl_autoload_register(function ($class_name) {
 
 use \PHP\CreationalPatterns\SimpleFactory as link;
 
-$obj = link\SimpleFactory::getInstance();
+$obj = link\SimpleFactory::createObject(1)->gerInfo();
 
-$obj = link\SimpleFactory::getInstance();
+$obj2 = link\SimpleFactory::createObject(2)->gerInfo();
 
-$obj = link\SimpleFactory::getInstance();
+$obj3 = link\SimpleFactory::createObject(3)->gerInfo();
 
 
 

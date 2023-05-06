@@ -3,7 +3,7 @@ namespace PHP\CreationalPatterns\SimpleFactory;
 /**
  * создвется класс одного из объектов
  */
-class Class1 implements ISF
+class Class1 implements InterfaceClass
 {
     /**
      * the method returns information to identify the object
