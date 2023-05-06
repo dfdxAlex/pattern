@@ -1,7 +1,7 @@
 <?php
 namespace PHP\CreationalPatterns\Singleton;
 
-class TestSingleton
+class TestSingletonNC
 {
 
     private static $instances = null;
@@ -17,7 +17,7 @@ class TestSingleton
         throw new \Exception("Cannot unserialize a singleton.");
     }
 
-    public static function getInstance($status): TestSingleton   // kill
+    public static function getInstance($status): TestSingletonNC   // kill
     //public static function getInstance($status): TestSingleton // kill comment
     {
         if (is_null(self::$instances)) {
