@@ -9,9 +9,11 @@ spl_autoload_register(function ($class_name) {
 
 use \PHP\CreationalPatterns\Singleton as link;
 
-$obj = link\TestSingletonNC::getInstance("hello");
+$obj = link\SingletonToGo::getInstance();
 
-echo $obj->getStatus();
+$obj = link\SingletonToGo::getInstance();
+
+$obj = link\SingletonToGo::getInstance();
 
 
 
