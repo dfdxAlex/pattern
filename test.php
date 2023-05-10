@@ -7,16 +7,13 @@ spl_autoload_register(function ($class_name) {
   } 
   );
 
-use \PHP\CreationalPatterns\SimpleFactory as link;
+use \PHP\CreationalPatterns\FactoryMethod as link;
 
-$obj = link\SimpleFactory::createObject(1)->gerInfo();
-echo $obj;
+$object = new link\Bike;
 
-$obj2 = link\SimpleFactory::createObject(1)->gerInfo();
-echo $obj2;
+echo $object->message();
 
-$obj3 = link\SimpleFactory::createObject(3)->gerInfo();
-echo $obj3;
+
 
 
 
