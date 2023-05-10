@@ -7,9 +7,10 @@ spl_autoload_register(function ($class_name) {
   } 
   );
 
+// просто псевдоним
 use \PHP\CreationalPatterns\FactoryMethod as link;
 
-$object = new link\Bike;
+$object = new link\Auto;
 
 echo $object->message();
 
