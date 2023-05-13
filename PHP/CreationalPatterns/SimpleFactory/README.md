@@ -1,7 +1,9 @@
-flowchart LR
-
-A[Hard] -->|Text| B(Round)  
-    B --> C{Decision}  
-    C -->|One| D[Result 1]  
-    C -->|Two| E[Result 2]  
-    
+erDiagram
+          CUSTOMER }|..|{ DELIVERY-ADDRESS : has
+          CUSTOMER ||--o{ ORDER : places
+          CUSTOMER ||--o{ INVOICE : "liable for"
+          DELIVERY-ADDRESS ||--o{ ORDER : receives
+          INVOICE ||--|{ ORDER : covers
+          ORDER ||--|{ ORDER-ITEM : includes
+          PRODUCT-CATEGORY ||--|{ PRODUCT : contains
+          PRODUCT ||--o{ ORDER-ITEM : "ordered in"
