@@ -2,11 +2,11 @@
 
 
   flowchart TB
-     А --> B
-     C --- D
-     E -.-> F
-     G ==> H
-     I --o J
-     K --x L
+      A -- Text --- B
+      C --- |Text| D
+      E --> |Text| F
+      G -- Text --> H
+      I -. Text .-> J
+      K == Text ==> L
 
 ```
