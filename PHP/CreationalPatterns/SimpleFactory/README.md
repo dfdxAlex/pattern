@@ -1,5 +1,5 @@
 ---
 title: Node with text
 ---
-flowchart LR
+flowchart LR  
     id
