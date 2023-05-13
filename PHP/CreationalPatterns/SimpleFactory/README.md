@@ -1,6 +1,6 @@
 ### Sorry, test
 
-```mermaid
+mermaid
 
 
   flowchart TB
@@ -15,4 +15,3 @@
           c1 --> c2
       end
 
-```
