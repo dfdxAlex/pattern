@@ -5,7 +5,7 @@ class FactoryRed implements IFactory
 {
     public function listOne()
     {
-        return new listOneRed;
+        return new ListOneRed;
     }
 
     public function listTwo()
