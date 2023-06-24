@@ -10,15 +10,18 @@ spl_autoload_register(function ($class_name) {
   } 
   );
 
+$class1 = new Test1;
+$class2 = new Test2;
+$class3 = new Test3;
 
- 
-  $sss = ServiceLocator::getInstance()->getTest();
-  echo $sss->getTest();
-  echo '<br>';
-  $sss = ServiceLocator::getInstance()->getTest();
-  echo $sss->getTest();
-  echo '<br>';
-  $sss = ServiceLocator::getInstance()->getTest();
+ $sss = new DependencyInjection(
+                                  $class1,
+                                  $class2,
+                                  $class3,
+                               );
 
-  echo $sss->getTest();
+ $test3 = $sss->getTest(1);
+
+ echo $class3->getTest();
+
 
