@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Простой класс, который умеет считать стоимость перевозки.
+ * 
+ * A simple class that can calculate the cost of transportation.
+ */
+
 class Money implements IMoney
 {
     public function returnMoney($s, $m)
