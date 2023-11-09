@@ -19,44 +19,31 @@ class TrafficLight
 }
 
 
-interface OnColor
+abstract class OnColor
 {
-    public function onColor();
-}
-class OnRed implements OnColor
-{
-    private $in;
+    abstract public function onColor();
+    protected $in;
     public function __construct(TrafficLight $in)
     {
         $this->in = $in;
     }
-
+}
+class OnRed extends OnColor
+{
     public function onColor()
     {
         return $this->in->onRed();
     }
 }
-class OnYellow implements OnColor
+class OnYellow extends OnColor
 {
-    private $in;
-    public function __construct(TrafficLight $in)
-    {
-        $this->in = $in;
-    }
-
     public function onColor()
     {
         return $this->in->onYellow();
     }
 }
-class OnGreen implements OnColor
+class OnGreen extends OnColor
 {
-    private $in;
-    public function __construct(TrafficLight $in)
-    {
-        $this->in = $in;
-    }
-
     public function onColor()
     {
         return $this->in->onGreen();
@@ -87,7 +74,7 @@ $onGreen = new OnGreen($trafficLight);
 
 $trafficLightControll = new TrafficLightControll();
 
-$trafficLightControll->setColor($onGreen);
+$trafficLightControll->setColor($onYellow);
 
 $trafficLightControll->pressButton();
 
