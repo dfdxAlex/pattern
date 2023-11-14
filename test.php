@@ -1,58 +1,28 @@
 <?php
 
-spl_autoload_register(function ($class_name) {
-    $hablon='/[^\d\w]/';
-    $class_name=preg_replace($hablon,DIRECTORY_SEPARATOR,$class_name);
-    require $class_name . '.php';
-  } 
-  );
+include "PHP\Structure\Registry\Registry.php";
+
+use PHP\Structure\Registry\Registry;
+use PHP\Structure\Registry\Plus;
+use PHP\Structure\Registry\Minus;
 
 
-interface IMathPlus
-{
-  public function plusAB($property);
-}
+Registry::registry()->setClass('Plus',new Plus);
 
-interface IProperty
-{
-  public function accept(IMathPlus $plus);
-}
+Registry::registry()->setClass('Minus',new Minus);
 
-class Property implements IProperty
-{
-  public $a;
-  public $b;
 
-  public function __construct($a, $b)
-  {
-       $this->a = $a;
-       $this->b = $b;
-  }
 
-  public function accept(IMathPlus $plus)
-  {
-      return $plus->plusAB($this);
-  }
-}
+Registry::registry()->getClass('Plus')->plus(3,3);
 
-class MathPlus implements IMathPlus
-{
-    public function plusAB($property)
-    {
-      return $property->a + $property->b;
-    }
-}
+Registry::registry()->getClass('Plus')->plus(13,3);
 
-class MathPlusTwo implements IMathPlus
-{
-    public function plusAB($property)
-    {
-      return ($property->a + $property->b)*2;
-    }
-}
+Registry::registry()->getClass('Plus')->plus(23,3);
 
-$prop = new Property(10, 10);
+Registry::registry()->getClass('Plus')->plus(33,3);
 
-$visiterTwo = new MathPlusTwo;
+Registry::registry()->getClass('Plus')->plus(33,3);
 
-echo $prop->accept(new MathPlusTwo);
+Registry::registry()->getClass('Minus')->minus(33,3);
+
+
