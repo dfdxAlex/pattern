@@ -8,7 +8,7 @@
 
 <?php
 
-include "PHP\Structure\FrontController.php";
+include "PHP\Structure\FrontController\FrontController.php";
 
 $obj = new FrontController;
 $obj->handleRequest();
