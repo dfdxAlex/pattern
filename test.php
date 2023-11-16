@@ -1,13 +1,10 @@
 <?php
 
-include "PHP\Fundamental\ImmutableInterface.php";
+include "PHP\Fundamental\ImmutableObject.php";
 
-$obj = new PointConst(10);
+$obj = new ConstPoint(444);
 
-$obj->setPoint(223);
+$obj2 = $obj->setPoint(111);
 
-$obj->setPoint(1223);
-
-echo $obj->getPoint();
-
-
+echo $obj->getPoint().'<br>';
+echo $obj2->getPoint();
