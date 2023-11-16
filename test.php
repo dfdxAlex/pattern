@@ -1,28 +1,13 @@
 <?php
 
-include "PHP\Structure\Registry\Registry.php";
+include "PHP\Fundamental\ImmutableInterface.php";
 
-use PHP\Structure\Registry\Registry;
-use PHP\Structure\Registry\Plus;
-use PHP\Structure\Registry\Minus;
+$obj = new PointConst(10);
 
+$obj->setPoint(223);
 
-Registry::registry()->setClass('Plus',new Plus);
+$obj->setPoint(1223);
 
-Registry::registry()->setClass('Minus',new Minus);
-
-
-
-Registry::registry()->getClass('Plus')->plus(3,3);
-
-Registry::registry()->getClass('Plus')->plus(13,3);
-
-Registry::registry()->getClass('Plus')->plus(23,3);
-
-Registry::registry()->getClass('Plus')->plus(33,3);
-
-Registry::registry()->getClass('Plus')->plus(33,3);
-
-Registry::registry()->getClass('Minus')->minus(33,3);
+echo $obj->getPoint();
 
 
