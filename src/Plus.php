@@ -1,8 +1,5 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
-include "vendor\autoload.php";
-
 class Plus
 {
     public function plus($a,$b)
@@ -11,9 +8,3 @@ class Plus
         return true;
     }
 }
-
-$obj = new Plus;
-$obj->test_plus();
-
-
-
