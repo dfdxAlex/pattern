@@ -6,14 +6,14 @@ include "PHP\Fundamental\MarkerInterface.php";
 
 $array = [];
 
-$array[] = new MarkerInterface();
-$array[] = new NotMarkerInterface();
-$array[] = new MarkerInterface();
-$array[] = new MarkerInterface();
-$array[] = new MarkerInterface();
-$array[] = new NotMarkerInterface();
-$array[] = new MarkerInterface();
-$array[] = new NotMarkerInterface();
+$array[] = new CarBMV('BMV');
+$array[] = new Car('Merceder-Benz');
+$array[] = new CarBMV('BMV');
+$array[] = new Car('Merceder-Benz');
+$array[] = new Car('Merceder-Benz');
+
+
+
 
 foreach ($array as $val) {
     if ($val instanceof IMarker) {
