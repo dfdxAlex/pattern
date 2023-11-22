@@ -5,37 +5,44 @@ class FrontController
     public function __construct($in)
     {
         echo 'Создан FrontController<br>';
-        $in->rout();
+        $in->setArr('button1','ControllerButtonOne');
+        $in->setArr('button2','ControllerButtonTwo');
+        $in->setArr('button3','ControllerButtonThree');
+        $in->rout($_GET);
     }
 }
+
+
 
 class Router
 {
-    public function rout()
+    private $arr = [];
+
+    public function setArr($key, $val)
     {
-        if (isset($_GET['button1']) 
-            || isset($_GET['button2']) 
-                || isset($_GET['button3'])) {
+        $this->arr[$key] = $val;
+    }
 
-                       if (isset($_GET['button1'])) {
-                           $obj = new ControllerButtonOne;
-                       }
+    public function rout($get)
+    {
+        $obj = '';
 
-                       if (isset($_GET['button2'])) {
-                           $obj = new ControllerButtonTwo;
-                       }   
+        foreach($get as $key=>$val) {
+            foreach($this->arr  as $keyMas=>$valMas) {
+                if ($key == $keyMas) {
+                    $obj = new $this->arr[$key];
+                }
+            }
+        }
 
-                       if (isset($_GET['button3'])) {
-                           $obj = new ControllerButtonThree;
-                       }   
+        if ($obj=='') $obj = new DefaultController;
 
-                       } else {
-                           $obj = new DefaultController;
-                           
-                       }
-                       $obj->controller();
+        echo $obj->controller();
     }
 }
+
+
+
 
 interface IController
 {
@@ -46,7 +53,7 @@ class DefaultController implements IController
 {
     public function controller()
     {
-        echo 'Привет, Выберите вариант.';
+        return 'Привет, Выберите вариант.';
     }
 }
 
@@ -54,7 +61,7 @@ class ControllerButtonOne implements IController
 {
     public function controller()
     {
-        echo 'Статья привязанная к первой кнопке';
+        return 'Статья привязанная к первой кнопке';
     }
 }
 
@@ -62,7 +69,7 @@ class ControllerButtonTwo implements IController
 {
     public function controller()
     {
-        echo 'Статья привязанная ко второй кнопке';
+        return 'Статья привязанная ко второй кнопке';
     }
 }
 
@@ -70,6 +77,6 @@ class ControllerButtonThree implements IController
 {
     public function controller()
     {
-        echo 'Статья привязанная к третьей кнопке';
+        return 'Статья привязанная к третьей кнопке';
     }
 }

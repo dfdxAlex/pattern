@@ -12,5 +12,4 @@
 
 include "PHP\Structure\FrontController\FrontController.php";
 
-$obj = new FrontController(new Router($_GET));
-// $obj->handleRequest();
+$obj = new FrontController(new Router());
