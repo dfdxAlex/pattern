@@ -18,3 +18,5 @@ $objRout->setArr('button2','ControllerButtonTwo');
 $objRout->setArr('button3','ControllerButtonThree');
 
 $obj = new FrontController($objRout);
+
+echo $obj->getRez();

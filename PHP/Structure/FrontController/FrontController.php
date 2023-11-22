@@ -6,7 +6,12 @@ class FrontController
     {
         echo 'Создан FrontController<br>';
 
-        $in->rout();
+        $this->rez = $in->rout();
+    }
+
+    public function getRez()
+    {
+        return $this->rez;
     }
 }
 
@@ -40,8 +45,8 @@ class Router
         }
 
         if ($obj=='') $obj = new DefaultController;
-
-        echo $obj->controller();
+        
+        return $obj->controller();
     }
 }
 
