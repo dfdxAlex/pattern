@@ -12,4 +12,9 @@
 
 include "PHP\Structure\FrontController\FrontController.php";
 
-$obj = new FrontController(new Router());
+$objRout = new Router($_GET);
+$objRout->setArr('button1','ControllerButtonOne');
+$objRout->setArr('button2','ControllerButtonTwo');
+$objRout->setArr('button3','ControllerButtonThree');
+
+$obj = new FrontController($objRout);

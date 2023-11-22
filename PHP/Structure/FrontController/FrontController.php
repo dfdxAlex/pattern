@@ -5,10 +5,8 @@ class FrontController
     public function __construct($in)
     {
         echo 'Создан FrontController<br>';
-        $in->setArr('button1','ControllerButtonOne');
-        $in->setArr('button2','ControllerButtonTwo');
-        $in->setArr('button3','ControllerButtonThree');
-        $in->rout($_GET);
+
+        $in->rout();
     }
 }
 
@@ -17,17 +15,23 @@ class FrontController
 class Router
 {
     private $arr = [];
+    private $get;
+
+    public function __construct($get)
+    {
+        $this->get = $get;
+    }
 
     public function setArr($key, $val)
     {
         $this->arr[$key] = $val;
     }
 
-    public function rout($get)
+    public function rout()
     {
         $obj = '';
 
-        foreach($get as $key=>$val) {
+        foreach($this->get as $key=>$val) {
             foreach($this->arr  as $keyMas=>$valMas) {
                 if ($key == $keyMas) {
                     $obj = new $this->arr[$key];
