@@ -1,27 +1,16 @@
-<?php
 
+
+<form >
+<input type="submit" name="button1">
+<input type="submit" name="button2">
+<input type="submit" name="button3">
+</form>
+
+
+<?php
 // use PHPUnit\Framework\TestCase;
 
-include "PHP\Fundamental\MarkerInterface.php";
+include "PHP\Structure\FrontController\FrontController.php";
 
-$array = [];
-
-$array[] = new CarBMV('BMV');
-$array[] = new Car('Merceder-Benz');
-$array[] = new CarBMV('BMV');
-$array[] = new Car('Merceder-Benz');
-$array[] = new Car('Merceder-Benz');
-
-
-
-
-foreach ($array as $val) {
-    if ($val instanceof IMarker) {
-        echo $val->car().'<br>';
-    } else {
-       
-    }
-}
-
-
-// var_dump($array);
+$obj = new FrontController(new Router($_GET));
+// $obj->handleRequest();
