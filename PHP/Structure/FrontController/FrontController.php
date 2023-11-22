@@ -24,6 +24,11 @@ class Router
 
     public function __construct($get)
     {
+        $this->setGet($get);
+    }
+
+    public function setGet($get)
+    {
         $this->get = $get;
     }
 

@@ -25,28 +25,18 @@ class RouterTest extends TestCase
         else $rezBool=false;
         if (!$rezBool) return $this->assertTrue(false);
 
-
-
-        $objRout2 = new Router(['button2'=>'']);
-        $objRout2->setArr('button1','ControllerButtonOne');
-        $objRout2->setArr('button2','ControllerButtonTwo');
-        $objRout2->setArr('button3','ControllerButtonThree');
+        $objRout->setGet(['button2'=>'']);
+        if ($objRout->rout() == "Статья привязанная ко второй кнопке") $rezBool=true;
+        else $rezBool=false;
+        if (!$rezBool) return $this->assertTrue(false);
         
-        $obj2 = new FrontController($objRout2);
-        
-        if ($obj2->getRez() == "Статья привязанная ко второй кнопке") $rezBool=true;
+        $objRout->setGet(['button3'=>'']);
+        if ($objRout->rout() == "Статья привязанная к третьей кнопке") $rezBool=true;
         else $rezBool=false;
         if (!$rezBool) return $this->assertTrue(false);
 
-        
-        $objRout3 = new Router(['button3'=>'']);
-        $objRout3->setArr('button1','ControllerButtonOne');
-        $objRout3->setArr('button2','ControllerButtonTwo');
-        $objRout3->setArr('button3','ControllerButtonThree');
-        
-        $obj3 = new FrontController($objRout3);
-        
-        if ($obj3->getRez() == "Статья привязанная к третьей кнопке") $rezBool=true;
+        $objRout->setGet(['buton3'=>'']);
+        if ($objRout->rout() == "Привет, Выберите вариант.") $rezBool=true;
         else $rezBool=false;
         if (!$rezBool) return $this->assertTrue(false);
     } 
