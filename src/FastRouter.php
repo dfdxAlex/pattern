@@ -1,8 +1,8 @@
-<form action="">
+<form>
     <input type="submit" formaction="/pattern/src/FastRouter.php/" value="Home">
-    <input type="submit" formaction="/pattern/src/FastRouter.php/about" value="About">
-    <input type="submit" formaction="/pattern/src/FastRouter.php/contact" value="Contact">
-    <input type="submit" formaction="/pattern/src/FastRouter.php/messages" value="Messages">
+    <input type="submit" formaction="/pattern/src/FastRouter.php/about.php" value="About">
+    <input type="submit" formaction="/pattern/src/FastRouter.php/contact.php" value="Contact">
+    <input type="submit" formaction="/pattern/src/FastRouter.php/messages.php" value="Messages">
 </form>
 
 <?php
@@ -15,10 +15,12 @@
  require '../vendor/autoload.php';
 
  $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
-    $r->addRoute('GET', '/pattern/src/FastRouter.php/', 'home');
-    $r->addRoute('GET', '/pattern/src/FastRouter.php/about', 'about');
-    $r->addRoute('GET', '/pattern/src/FastRouter.php/contact', 'contact');
-    $r->addRoute('GET', '/pattern/src/FastRouter.php/messages', 'messages');
+    $r->addGroup('/pattern/src/FastRouter.php', function (FastRoute\RouteCollector $r) {
+        $r->addRoute('GET', '/', 'home');
+        $r->addRoute('GET', '/about.php', 'about');
+        $r->addRoute('GET', '/contact.php', 'contact');
+        $r->addRoute('GET', '/messages.php', 'messages');
+    });
 });
 
 // Fetch method and URI from somewhere
@@ -65,8 +67,6 @@ switch ($routeInfo[0]) {
         if ($handler == 'messages') {
             echo 'Привет, ты можешь оставить своё сообщение тут';
         }
-
-            
 
         // ... call $handler with $vars
         break;
