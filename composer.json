@@ -17,5 +17,8 @@
             "email": "alexmway@mail.ru"
         }
     ],
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "require": {
+        "nikic/fast-route": "^1.3"
+    }
 }

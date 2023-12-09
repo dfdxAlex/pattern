@@ -4,7 +4,6 @@ use PHPUnit\Framework\TestCase;
 include "PHP\Structure\FrontController\FrontController.php";
 
 
-
 class RouterTest extends TestCase
 {
     /**
