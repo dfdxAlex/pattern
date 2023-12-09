@@ -1,3 +1,10 @@
+<form action="">
+    <input type="submit" formaction="/pattern/src/FastRouter.php/" value="Home">
+    <input type="submit" formaction="/pattern/src/FastRouter.php/about" value="About">
+    <input type="submit" formaction="/pattern/src/FastRouter.php/contact" value="Contact">
+    <input type="submit" formaction="/pattern/src/FastRouter.php/messages" value="Messages">
+</form>
+
 <?php
 /**
  * Установить FastRouter
@@ -7,23 +14,11 @@
 
  require '../vendor/autoload.php';
 
-class hello
-{
-    function hello()
-    {
-        echo 'Привет';
-    }
-    function hello2()
-    {
-        echo 'Привет 2';
-    }
-}
-
  $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
-    $r->addRoute('GET', '/pattern/src/FastRouter.php/', 'hello');
-    $r->addRoute('GET', '/pattern/src/FastRouter.php/users.php', 'hello2');
-    $r->addRoute('GET', '/pattern/src/FastRouter.php/user/{id:\d+}/{id1:\d+}', 'hello3');
-    $r->addRoute('GET', '/pattern/src/FastRouter.php/art/{id:\d+}[/{title}]', 'hello4');
+    $r->addRoute('GET', '/pattern/src/FastRouter.php/', 'home');
+    $r->addRoute('GET', '/pattern/src/FastRouter.php/about', 'about');
+    $r->addRoute('GET', '/pattern/src/FastRouter.php/contact', 'contact');
+    $r->addRoute('GET', '/pattern/src/FastRouter.php/messages', 'messages');
 });
 
 // Fetch method and URI from somewhere
@@ -55,23 +50,22 @@ switch ($routeInfo[0]) {
         $handler = $routeInfo[1];
         $vars = $routeInfo[2];
 
-        $obj = new Hello;
-        if ($handler == 'hello')
-            $obj->hello();
-        if ($handler == 'hello2')
-            $obj->hello2();
-        if ($handler == 'hello3') {
-            var_dump($handler);
-            echo '<br>';
-            var_dump($vars);
-            echo '<br>';
+        if ($handler == 'home') {
+            echo 'Привет, ты перешел на домашнюю страницу';
         }
-        if ($handler == 'hello4') {
-            var_dump($handler);
-            echo '<br>';
-            var_dump($vars);
-            echo '<br>';
+
+        if ($handler == 'about') {
+            echo 'Привет, ты перешел на страницу О Нас';
         }
+
+        if ($handler == 'contact') {
+            echo 'Привет, ты перешел на страницу с контактами';
+        }
+
+        if ($handler == 'messages') {
+            echo 'Привет, ты можешь оставить своё сообщение тут';
+        }
+
             
 
         // ... call $handler with $vars
