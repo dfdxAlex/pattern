@@ -21,7 +21,9 @@ class hello
 
  $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/pattern/src/FastRouter.php/', 'hello');
-    $r->addRoute('GET', '/pattern/src/FastRouter.php/users', 'hello2');
+    $r->addRoute('GET', '/pattern/src/FastRouter.php/users.php', 'hello2');
+    $r->addRoute('GET', '/pattern/src/FastRouter.php/user/{id:\d+}/{id1:\d+}', 'hello3');
+    $r->addRoute('GET', '/pattern/src/FastRouter.php/art/{id:\d+}[/{title}]', 'hello4');
 });
 
 // Fetch method and URI from somewhere
@@ -42,11 +44,13 @@ switch ($routeInfo[0]) {
         // ... 404 Not Found
         echo '404 Not Found';
         break;
+
     case FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
         $allowedMethods = $routeInfo[1];
         // ... 405 Method Not Allowed
         echo '405 Method Not Allowed';
         break;
+
     case FastRoute\Dispatcher::FOUND:
         $handler = $routeInfo[1];
         $vars = $routeInfo[2];
@@ -56,6 +60,19 @@ switch ($routeInfo[0]) {
             $obj->hello();
         if ($handler == 'hello2')
             $obj->hello2();
+        if ($handler == 'hello3') {
+            var_dump($handler);
+            echo '<br>';
+            var_dump($vars);
+            echo '<br>';
+        }
+        if ($handler == 'hello4') {
+            var_dump($handler);
+            echo '<br>';
+            var_dump($vars);
+            echo '<br>';
+        }
+            
 
         // ... call $handler with $vars
         break;
