@@ -1,0 +1,32 @@
+<?php return array (
+  0 => 
+  array (
+    'GET' => 
+    array (
+      '/pattern/src/FastRouter.php/' => 'home',
+      '/pattern/src/FastRouter.php/contact.php' => 'contact',
+      '/pattern/src/FastRouter.php/messages.php' => 'messages',
+    ),
+  ),
+  1 => 
+  array (
+    'GET' => 
+    array (
+      0 => 
+      array (
+        'regex' => '~^(?|/pattern/src/FastRouter\\.php/about\\.php/([^/]+))$~',
+        'routeMap' => 
+        array (
+          2 => 
+          array (
+            0 => 'about',
+            1 => 
+            array (
+              'name' => 'name',
+            ),
+          ),
+        ),
+      ),
+    ),
+  ),
+);
